@@ -101,7 +101,7 @@ const Slider = () => {
       <Arrow direction="left" onClick={()=>handleClick("left")}><AiOutlineArrowLeft /></Arrow>
       <Wrapper slideIndex={slideIndex}>
         {slideritems.map(item =>(
-        <Slide >
+        <Slide key={item.id}>
           <ImgContainer>
             <Image src={item.img} />
           </ImgContainer>
