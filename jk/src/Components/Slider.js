@@ -25,6 +25,7 @@ const Arrow = styled.div`
   position:absolute;
   top:0;
   bottom:0;
+  /* left:0; */
   left:${props => props.direction === "left" && "10px"};
   right:${props => props.direction === "right" && "10px"};
   margin:auto;
@@ -86,22 +87,19 @@ const Slider = () => {
   const [slideIndex,setSlideIndex]=useState(0);
 
   const handleClick = (direction) => {
-    if(direction ==="left"){
+    if(direction == "left"){
       setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2)
-      console.log("jyot");
     }
     else{
       setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
-      console.log("right")
     }
   }
 
   return (
     <Container>
-      <Arrow direction="left" onClick={()=>handleClick("left")}><AiOutlineArrowLeft /></Arrow>
       <Wrapper slideIndex={slideIndex}>
         {slideritems.map(item =>(
-        <Slide key={item.id}>
+          <Slide key={item.id}>
           <ImgContainer>
             <Image src={item.img} />
           </ImgContainer>
@@ -114,6 +112,7 @@ const Slider = () => {
 
         ))}
       </Wrapper>
+      <Arrow direction="left" onClick={()=>handleClick("left")}><AiOutlineArrowLeft /></Arrow>
       <Arrow direction="right" onClick={()=>handleClick("right")}><AiOutlineArrowRight /></Arrow>
     </Container>
   )
