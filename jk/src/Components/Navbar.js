@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsSearch } from 'react-icons/bs';
 import {MdLocalGroceryStore} from 'react-icons/md'
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     height:60px;
@@ -61,7 +62,7 @@ const Navbar = () => {
     < Container>
       <Wrrapper>
         <Left>
-          <Lanuage>en</Lanuage>
+          <Lanuage></Lanuage>
           <SearchContainer>
             <Input></Input>
             <BsSearch style={{color: 'gray',fontSize:16}}/>
@@ -69,10 +70,10 @@ const Navbar = () => {
         </Left>
         <Center><Logo>LAMA</Logo></Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem><MdLocalGroceryStore/></MenuItem>
-
+          <MenuItem><Link to="/register" target="_blank">REGISTER</Link></MenuItem>
+          <MenuItem><Link to="/login" target="_blank">SIGN IN</Link></MenuItem>
+          <MenuItem><Link to="/cart"><MdLocalGroceryStore/></Link></MenuItem>
+         
         </Right>
       </Wrrapper>
     </Container>

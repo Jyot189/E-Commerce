@@ -7,7 +7,7 @@ import { FaPinterest } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { FiPhone } from 'react-icons/fi';
 import { MdEmail } from 'react-icons/md';
-
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display:flex;
@@ -101,10 +101,10 @@ const Footer = () => {
         <Center>
             <Title>Useful Links</Title>
             <List>
-                <ListItem>Home</ListItem>
-                <ListItem>Cart</ListItem>
-                <ListItem>Man Fashion</ListItem>
-                <ListItem>Woman Fashion</ListItem>
+                <ListItem> <Link to="/">Home</Link></ListItem>
+                <ListItem><Link to="/cart">Cart</Link></ListItem>
+                <ListItem><Link to="/product">Man Fashion</Link></ListItem>
+                <ListItem><Link to="/productlist">Woman Fashion</Link></ListItem>
                 <ListItem>Accessories</ListItem>
                 <ListItem>My Account</ListItem>
                 <ListItem>Order Tracking</ListItem>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     width:100vw;
@@ -47,7 +48,7 @@ const Button = styled.div`
     justify-content:center;
     margin-bottom:10px ;
 `
-const Link= styled.a`
+const Box= styled.div`
     margin: 5px 0px;
     font-size:15px;
     text-decoration:underline;
@@ -63,8 +64,8 @@ const Login = () => {
                     <Input placeholder="Username" />
                     <Input placeholder="Password" />
                     <Button>LOGIN</Button>
-                    <Link>Do not you remember password?</Link>
-                    <Link>Create a new Account</Link>
+                    <Box>Do not you remember password?</Box>
+                    <Box><Link to="/register" target="_blank">Create a new Accounl</Link></Box>
                 </Form>
             </Wrapper>
     </Container>

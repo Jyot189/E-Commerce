@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import {AiOutlineHeart} from 'react-icons/ai'
+import { Link } from "react-router-dom";
 
 const Info = styled.div`
     opacity:0;
@@ -72,10 +73,10 @@ const Product = ({item}) => {
         <Image src={item.img}/>
         <Info>
             <Icon>
-                <AiOutlineShoppingCart/>
+            <Link to="/cart"><AiOutlineShoppingCart/></Link>
             </Icon>
             <Icon>
-                <BsSearch/>
+            <Link to="/productlist"><BsSearch/></Link>
             </Icon>
             <Icon>
                 <AiOutlineHeart/>
