@@ -179,7 +179,7 @@ const Cart = () => {
                                 <ProductAmount>2</ProductAmount>
                             <AiOutlineMinus/>
                       </ProductAmountContainer>
-                      <ProductPrize>$ 30</ProductPrize>
+                      <ProductPrize>₹ 30</ProductPrize>
                   </PriceDetail>
                   </Product>
                     <Hr/>
@@ -199,7 +199,7 @@ const Cart = () => {
                                 <ProductAmount>2</ProductAmount>
                             <AiOutlineMinus/>
                       </ProductAmountContainer>
-                      <ProductPrize>$ 20</ProductPrize>
+                      <ProductPrize>₹ 20</ProductPrize>
                   </PriceDetail>
                   </Product>
               </Info>
@@ -207,19 +207,19 @@ const Cart = () => {
                     <SummaryTitle>Order Summary</SummaryTitle>
                     <SummaryItem>
                         <SummaryItemText>Subtotal</SummaryItemText>
-                        <SummaryItemPrice>$ 80</SummaryItemPrice>
+                        <SummaryItemPrice>₹ 80</SummaryItemPrice>
                     </SummaryItem>
                     <SummaryItem>
                         <SummaryItemText>Estimated Shipping</SummaryItemText>
-                        <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+                        <SummaryItemPrice>₹ 5.90</SummaryItemPrice>
                     </SummaryItem>
                     <SummaryItem>
                         <SummaryItemText>Shipping Discount</SummaryItemText>
-                        <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+                        <SummaryItemPrice>₹ -5.90</SummaryItemPrice>
                     </SummaryItem>
                     <SummaryItem type="total">
                         <SummaryItemText >Total</SummaryItemText>
-                        <SummaryItemPrice>$ 80</SummaryItemPrice>
+                        <SummaryItemPrice>₹ 80</SummaryItemPrice>
                     </SummaryItem>
                     <Button>Check Out</Button>
               </Summary>

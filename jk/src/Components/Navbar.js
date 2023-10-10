@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsSearch } from 'react-icons/bs';
 import {MdLocalGroceryStore} from 'react-icons/md'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     height:60px;
@@ -56,8 +56,24 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
 `
-
+const Button = styled.button`
+    width:70%;
+    border:none;
+    padding:5px 10px;
+    background-color:teal;
+    color:white;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px ;
+`
 const Navbar = () => {
+  const navigate = useNavigate();
+    const handleLogout=()=>{
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
   return (
     < Container>
       <Wrrapper>
@@ -69,12 +85,14 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center><Logo>LAMA</Logo></Center>
-        <Right>
+        {!localStorage.getItem('token') ?<Right>
           <MenuItem><Link to="/register" target="_blank">REGISTER</Link></MenuItem>
           <MenuItem><Link to="/login" target="_blank">SIGN IN</Link></MenuItem>
-          <MenuItem><Link to="/cart"><MdLocalGroceryStore/></Link></MenuItem>
-         
         </Right>
+        :<Right>
+          <MenuItem><Button onClick={handleLogout}>logout</Button></MenuItem>
+          <MenuItem><Link to="/cart"><MdLocalGroceryStore/></Link></MenuItem>
+        </Right>}
       </Wrrapper>
     </Container>
   )

@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "6523de1aa20e2405d73036f0"
+  },
+  "firstname": "jyot",
+  "lastname": "khant",
+  "email": "jyot@gmail.com",
+  "password": "$2a$10$U/MRKDInf4qSA2fYprbpaOTZsZBHa5BKeM0mSeldy2eNIpziGg7ji",
+  "date": {
+    "$date": "2023-10-09T11:01:30.338Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6523e0d1a20e2405d73036f3"
+  },
+  "firstname": "jyot",
+  "lastname": "khant",
+  "email": "12002080601047@adit.ac.in",
+  "password": "$2a$10$A9gmT5YqZy17ylThDX3sE.bICcRDqEhfTd4xufxfpEReI0bD.3GB.",
+  "date": {
+    "$date": "2023-10-09T11:01:30.338Z"
+  },
+  "__v": 0
+}]

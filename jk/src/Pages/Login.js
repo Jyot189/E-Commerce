@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     width:100vw;
@@ -36,7 +36,7 @@ const Input = styled.input`
 
 `
 
-const Button = styled.div`
+const Button = styled.button`
     width:40%;
     border:none;
     padding:15px 20px;
@@ -48,7 +48,7 @@ const Button = styled.div`
     justify-content:center;
     margin-bottom:10px ;
 `
-const Box= styled.div`
+const Box = styled.div`
     margin: 5px 0px;
     font-size:15px;
     text-decoration:underline;
@@ -56,20 +56,53 @@ const Box= styled.div`
 `
 
 const Login = () => {
-  return (
-    <Container>
-        <Wrapper>
+    const BASE_URL = process.env.REACT_APP_BACKEND_API;
+
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch(`${BASE_URL}/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password
+            }), 
+        });
+        const json = await response.json();
+
+        if (json.success) {
+            //save the auth token
+            localStorage.setItem('token', json.authToken);
+
+            navigate('/');
+
+        } else {
+            alert('not login');
+        }
+        console.log("Login:" + JSON.stringify(json));
+    }
+    const onChange = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    }
+    return (
+        <Container>
+            <Wrapper>
                 <Title>Sign In</Title>
-                <Form>
-                    <Input placeholder="Username" />
-                    <Input placeholder="Password" />
-                    <Button>LOGIN</Button>
+                <Form onSubmit={handleSubmit}>
+                    <Input placeholder="Email" name="email" value={credentials.email} onChange={onChange} />
+                    <Input placeholder="Password" name="password" value={credentials.password} onChange={onChange} />
+                    <Button type="submit">LOGIN</Button>
                     <Box>Do not you remember password?</Box>
                     <Box><Link to="/register" target="_blank">Create a new Accounl</Link></Box>
                 </Form>
             </Wrapper>
-    </Container>
-  )
+        </Container>
+    )
 }
 
 export default Login

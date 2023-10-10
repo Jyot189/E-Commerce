@@ -1,7 +1,7 @@
 export const slideritems=[
     {
         id:1,
-        img: "https://st1.bollywoodlife.com/wp-content/uploads/photos/hina-khans-blazer-dress-is-the-right-way-to-do-monochromes-view-pics-201909-1480623.jpg?impolicy=Medium_Resize&w=1200&h=1200",
+        img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bollywoodhungama.com%2Fnews%2Ffeatures%2Fkiara-advani-sight-sheer-grace-white-saree-corset-inspired-blouse-jug-jug-jeeyo-promotions%2F&psig=AOvVaw3g5fgn8ipTgKfJKBfLf4n-&ust=1683690928883000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCPjZzdqr5_4CFQAAAAAdAAAAABAD",
         title: "Summer Sale",
         desc:"Don't Compromise on style! get flat 30% off for new arrivals"
     },
