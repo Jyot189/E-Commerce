@@ -149,9 +149,7 @@ const Button = styled.button`
 
 const Cart = () => {
     const state =useSelector(state=>state.amount)
-    // const context = useContext(itemContext);
-    // const { cartItem } = context;
-    // console.log("cart:" + JSON.stringify(cartItem));
+    
     return (
         <Container >
             <Navbar />

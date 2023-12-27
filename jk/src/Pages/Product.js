@@ -6,7 +6,8 @@ import Newsletter from '../Components/Newsletter'
 import Footer from '../Components/Footer'
 import {AiOutlinePlus} from 'react-icons/ai';
 import {AiOutlineMinus} from 'react-icons/ai';
-
+// import { addProduct } from "../reduxToolkit/cartRedux";
+// import { useDispatch } from "react-redux"
 
 const Container = styled.div``;
 const Wrapper = styled.div`

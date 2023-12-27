@@ -1,13 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai'
 import { Link } from "react-router-dom";
-import itemContext from '../context/items/itemContext'
 import { useDispatch } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import {actionCreators} from '../state/index'
+import {depositMoney} from '../reduxToolkit/slice'
 
 const Info = styled.div`
     opacity:0;
@@ -71,10 +69,9 @@ const Icon = styled.div`
 
 
 const Product = ({ item }) => {
-    const context = useContext(itemContext);
-    const {  setCartItem } = context;
+    
     const dispatch = useDispatch();
-    const {depositMoney,withdrawMoney}=bindActionCreators(actionCreators,dispatch);
+    // const {depositMoney,withdrawMoney}=bindActionCreators(actionCreators,dispatch);
     // console.log("item:" + JSON.stringify(item))
 
     // const clickHandler=(item)=>{
@@ -87,7 +84,7 @@ const Product = ({ item }) => {
             <Info>
                 <Icon>
                     <Link to="/cart" >
-                        <div onClick={()=>{depositMoney(item)}}><AiOutlineShoppingCart /></div>
+                        <div onClick={()=>dispatch(depositMoney(100))}><AiOutlineShoppingCart /></div>
                         {/* <AiOutlineShoppingCart /> */}
                     </Link>
                 </Icon>
