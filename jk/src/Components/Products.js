@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useContext,useEffect} from 'react'
 import styled from 'styled-components'
-import {popularProducts} from '../data'
+// import {popularProducts} from '../data'
 import Product from './Product'
-
+import itemContext from '../context/items/itemContext'
 
 const Container = styled.div`
     display:flex;
@@ -12,6 +12,13 @@ const Container = styled.div`
 `
 
 const Products = () => {
+  const context = useContext(itemContext);
+  const {popularProducts,getPopularProducts}=context;
+
+  useEffect(()=>{
+    getPopularProducts();
+    // eslint-disable-next-line
+  },[])
   return (
     <Container>
         {

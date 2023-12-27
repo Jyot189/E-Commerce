@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import styled from 'styled-components'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import {slideritems} from '../data'
+// import {slideritems} from '../data'
+import itemContext from '../context/items/itemContext'
+
 
 const Container = styled.div`
     width:100%;
@@ -83,22 +85,36 @@ const Image = styled.img`
 
 
 const Slider = () => {
+  const context = useContext(itemContext);
+  const {sliderItems,getSliderItems}=context;
 
+  useEffect(()=>{
+    getSliderItems();
+    // eslint-disable-next-line
+  },[]);
+  const numberOfItems=Object.keys(sliderItems).length
+  console.log("numberOfItems"+numberOfItems);
   const [slideIndex,setSlideIndex]=useState(0);
 
   const handleClick = (direction) => {
+    // if(direction === "left"){
+    //   setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2)
+    // }
+    // else{
+    //   setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
+    // }
     if(direction === "left"){
-      setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2)
+      setSlideIndex(slideIndex > 0 ? slideIndex-1 : numberOfItems-1)
     }
     else{
-      setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
+      setSlideIndex(slideIndex < numberOfItems-1 ? slideIndex+1 : 0)
     }
   }
 
   return (
     <Container>
       <Wrapper slideIndex={slideIndex}>
-        {slideritems.map(item =>(
+        {sliderItems.map(item =>(
           <Slide key={item.id}>
           <ImgContainer>
             <Image src={item.img} />

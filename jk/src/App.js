@@ -7,9 +7,14 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import ProductList from './Pages/ProductList';
 import Product from './Pages/Product'
+import ItemState from './context/items/ItemState'
+// import itemContext from './context/items/itemContext'
+
 const App = () => {
+  // const context = useContext(itemContext);
+    // const { cartItem } = context;
   return (
-    <> 
+    <ItemState> 
     <Router>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
@@ -20,7 +25,7 @@ const App = () => {
         <Route path="/cart" element={<Cart/>}/>
       </Routes>
     </Router>
-    </>
+    </ItemState>
   )
 }
 

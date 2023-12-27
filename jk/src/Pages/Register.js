@@ -67,7 +67,7 @@ const Register = () => {
         e.preventDefault();
 
         if ((credentials.password === credentials.confirmPassword)) {
-            const response = await fetch(`${BASE_URL}/createuser`, {
+            const response = await fetch(`${BASE_URL}/auth/createuser`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

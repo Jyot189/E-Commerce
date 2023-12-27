@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
-import {AiOutlineHeart} from 'react-icons/ai'
+import { AiOutlineHeart } from 'react-icons/ai'
 import { Link } from "react-router-dom";
+import itemContext from '../context/items/itemContext'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {actionCreators} from '../state/index'
 
 const Info = styled.div`
     opacity:0;
@@ -66,24 +70,36 @@ const Icon = styled.div`
 `
 
 
-const Product = ({item}) => {
-  return (
-    <Container>
-        <Circle/>
-        <Image src={item.img}/>
-        <Info>
-            <Icon>
-            <Link to="/cart"><AiOutlineShoppingCart/></Link>
-            </Icon>
-            <Icon>
-            <Link to="/productlist"><BsSearch/></Link>
-            </Icon>
-            <Icon>
-                <AiOutlineHeart/>
-            </Icon>
-        </Info>
-    </Container>
-  )
+const Product = ({ item }) => {
+    const context = useContext(itemContext);
+    const {  setCartItem } = context;
+    const dispatch = useDispatch();
+    const {depositMoney,withdrawMoney}=bindActionCreators(actionCreators,dispatch);
+    // console.log("item:" + JSON.stringify(item))
+
+    // const clickHandler=(item)=>{
+        
+    // }
+    return (
+        <Container>
+            <Circle />
+            <Image src={item.img} />
+            <Info>
+                <Icon>
+                    <Link to="/cart" >
+                        <div onClick={()=>{depositMoney(item)}}><AiOutlineShoppingCart /></div>
+                        {/* <AiOutlineShoppingCart /> */}
+                    </Link>
+                </Icon>
+                <Icon>
+                    <Link to="/productlist"><BsSearch /></Link>
+                </Icon>
+                <Icon>
+                    <AiOutlineHeart />
+                </Icon>
+            </Info>
+        </Container>
+    )
 }
 
 export default Product
