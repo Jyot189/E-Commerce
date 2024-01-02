@@ -11,6 +11,8 @@ app.use(express.json())//Result { formatter: [Function: formatter], errors: [] }
 
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/product',require('./routes/items'))
+app.use('/api/orders',require('./routes/order'))
+app.use('/api/product',require('./routes/product'))
 
 app.listen(port,()=>{
     console.log(`app listeing at http://localhost:${port}`);
