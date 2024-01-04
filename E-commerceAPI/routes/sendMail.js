@@ -26,7 +26,13 @@ router.post("/", async (req, res) => {
     from: 'jyotkhant1809@gmail.com',
     to: req.body.clientMail,
     subject: 'E-commerce',
-    text: 'Bill'
+    text: 'Bill',
+    attachments: [
+      {
+          filename: 'Analysis of Algorithms!.pdf',
+          path: __dirname + '/Analysis of Algorithms!.pdf'
+      }
+  ]
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
