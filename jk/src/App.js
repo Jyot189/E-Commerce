@@ -8,6 +8,7 @@ import Home from './Pages/Home';
 import ProductList from './Pages/ProductList';
 import Product from './Pages/Product'
 import ItemState from './context/items/ItemState'
+import SendMail from '../../E-commerceAPI/sendMail'
 // import itemContext from './context/items/itemContext'
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/SendMail" element={<SendMail/>}/>
       </Routes>
     </Router>
     </ItemState>

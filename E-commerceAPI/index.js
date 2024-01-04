@@ -14,6 +14,7 @@ app.use('/api/product',require('./routes/items'))
 app.use('/api/orders',require('./routes/order'))
 app.use('/api/product',require('./routes/product'))
 app.use('/api/cart',require('./routes/cart'))
+app.use('/api/sendBill',require('./routes/sendMail'))
 
 app.listen(port,()=>{
     console.log(`app listeing at http://localhost:${port}`);
